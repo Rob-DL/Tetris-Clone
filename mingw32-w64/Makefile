@@ -1,5 +1,5 @@
 #Files to compile
-OBJS = tetris.cpp
+OBJS = ../src/tetris.cpp
 
 CC = g++
 
@@ -22,5 +22,5 @@ LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
 # Targets
 tetris: $(OBJS)
-	$(CC) tetris.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o .\bin\tetris.exe
+	$(CC) ../src/tetris.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o ..\bin\tetris.exe
 
