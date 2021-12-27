@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <map>
 #include <ctime>
+#include <random>
+#include <chrono>
 #include "SDL.h"
 #include "SDL_ttf.h"
 
@@ -65,6 +67,7 @@ const int OFFSET_Y = -40;
 const int OFFSET_X_NEXT = SCREEN_WIDTH / 2 - 50;
 const int OFFSET_Y_NEXT = 50;
 const int INPUT_REPEAT_DELAY = 100;
+const unsigned SEED = std::chrono::system_clock::now().time_since_epoch().count();
 
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
@@ -676,7 +679,7 @@ std::vector<std::vector<unsigned char>> getRandomShape(){
     // Add all shapes to the bag if its empty
     if (shapesBag.empty()){
         std::vector<unsigned char> shapeKeys = SHAPES_AVAILABLE;
-        random_shuffle(shapeKeys.begin(), shapeKeys.end());
+        std::shuffle(shapeKeys.begin(), shapeKeys.end(), std::default_random_engine(SEED));
 
         for(unsigned char sk : shapeKeys){
             shapesBag.push(sk);
