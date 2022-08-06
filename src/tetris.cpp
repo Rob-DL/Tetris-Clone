@@ -7,8 +7,8 @@
 #include <ctime>
 #include <random>
 #include <chrono>
-#include "SDL.h"
-#include "SDL_ttf.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 // 22x10 Array of unsigned chars initialized to 0
 std::vector<std::vector<unsigned char>> fieldMat(22, std::vector<unsigned char>(10, 0));
